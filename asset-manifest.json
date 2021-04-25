@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-app-qiankun-main/static/css/main.befa09af.chunk.css",
+    "main.js": "/react-app-qiankun-main/static/js/main.10a0639d.chunk.js",
+    "main.js.map": "/react-app-qiankun-main/static/js/main.10a0639d.chunk.js.map",
+    "runtime-main.js": "/react-app-qiankun-main/static/js/runtime-main.13791c3f.js",
+    "runtime-main.js.map": "/react-app-qiankun-main/static/js/runtime-main.13791c3f.js.map",
+    "static/js/2.ac44c6fd.chunk.js": "/react-app-qiankun-main/static/js/2.ac44c6fd.chunk.js",
+    "static/js/2.ac44c6fd.chunk.js.map": "/react-app-qiankun-main/static/js/2.ac44c6fd.chunk.js.map",
+    "static/js/3.e335d890.chunk.js": "/react-app-qiankun-main/static/js/3.e335d890.chunk.js",
+    "static/js/3.e335d890.chunk.js.map": "/react-app-qiankun-main/static/js/3.e335d890.chunk.js.map",
+    "index.html": "/react-app-qiankun-main/index.html",
+    "static/css/main.befa09af.chunk.css.map": "/react-app-qiankun-main/static/css/main.befa09af.chunk.css.map",
+    "static/js/2.ac44c6fd.chunk.js.LICENSE.txt": "/react-app-qiankun-main/static/js/2.ac44c6fd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.13791c3f.js",
+    "static/js/2.ac44c6fd.chunk.js",
+    "static/css/main.befa09af.chunk.css",
+    "static/js/main.10a0639d.chunk.js"
+  ]
+}
