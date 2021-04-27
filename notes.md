@@ -1,5 +1,5 @@
 
-## 基于qiankun微前端实战加部署笔记
+## 基于qiankun微前端实战+部署粗略笔记（跳过原理）
 因业务需要，以下文字纯个人qiankun实战学习笔记，不谈原理只记操作过程，内容难免有纰漏部分，敬请不吝赐教批评指正。
 
 ![](https://i.loli.net/2021/04/23/BN6E45ZCUxtLhFX.gif)
@@ -637,7 +637,7 @@ react-app-qiankun-main
 └── index.html
 ```
 
-#### 部署（以下只初略记录核心部署过程，过于简陋）
+#### 部署（以下只初略记录部署过程，过于简陋）
 + 前提：已购云服务器，并已安装[docker](https://help.aliyun.com/document_detail/51853.html?spm=a2c4g.11186623.4.1.20aa4c07DdFvHb)、[nginx](https://hub.docker.com/_/nginx)、[jenkins](https://www.jenkins.io/zh/doc/book/installing/)、3个独立域名及ssl证书
 
 + 本地编码，github存储代码，分别[新建3个公开代码库](https://github.com/new)
