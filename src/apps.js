@@ -1,5 +1,4 @@
 import store from './store/store'
-console.error('~~~~process.env.REACT_APP_SUB_REACT', process.env.REACT_APP_SUB_REACT)
 const microApps = [
   {
     name: 'react',
