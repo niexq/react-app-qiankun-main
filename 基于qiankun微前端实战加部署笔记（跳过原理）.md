@@ -4,6 +4,8 @@
 
 ![](https://i.loli.net/2021/04/23/BN6E45ZCUxtLhFX.gif)
 
+### 目标场景
+![](https://i.loli.net/2021/04/27/RQycNgEzJBv5Som.png)
 ### 预备知识点
 + 已对[qiankun](https://qiankun.umijs.org/)微前端有了初步认识;
 + 熟悉[react](https://react.docschina.org/)、[vuejs](https://cn.vuejs.org/);
@@ -58,18 +60,18 @@ react-app-qiankun-main
 │   ├── index.html
 │   └── manifest.json
 └── src
-    └── components
-          └── Loading.jsx
-    └── store
-          └── store.js // 主应用的全局状态
-    ├── apps.js        // 子应用配置
+    ├── components
+    │     └── Loading.jsx
+    ├── store
+    │     └── store.js    // 主应用的全局状态
+    ├── apps.js           // 子应用配置
     ├── App.css
-    ├── App.js         // 基座布局，挂载子应用
+    ├── App.js            // 基座布局，挂载子应用
     ├── App.test.js
     ├── index.css
-    ├── index.js       // 主应用中注册微应用
+    ├── index.js          // 主应用中注册微应用
     ├── logo.svg
-    └── reportWebVitals.js
+    ├── reportWebVitals.js
     └── setupTests.js
 ```
 
@@ -94,7 +96,7 @@ react-app-qiankun-main
     <div id="main-root"></div>
   ```
 
-+ 新增store/store.js，配置主应用的全局状态
++ 新增[store/store.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/store/store.js)，配置主应用的全局状态
   ```js
     import { initGlobalState } from 'qiankun';
 
@@ -120,7 +122,7 @@ react-app-qiankun-main
     export default actions;
   ```
 
-+ 修改src/App.js，主要完成基座页面布局及增加挂载子应用的dom（id="subapp-viewport"）
++ 修改[src/App.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/App.js)，主要完成基座页面布局及增加挂载子应用的dom（id="subapp-viewport"）
   ```js
     function App(props) {
       // ...省略，详细可见源码
@@ -143,7 +145,7 @@ react-app-qiankun-main
     }
   ```
   
-+ 增加apps.js，子应用的配置
++ 增加[apps.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/apps.js)，子应用的配置
   ```js
     import store from './store/store'
     const microApps = [
@@ -173,7 +175,7 @@ react-app-qiankun-main
 
     export default apps
   ```
-+ 修改src/index.js，主应用中注册微（子）应用
++ 修改[src/index.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/index.js)，主应用中注册微（子）应用
   ```js
     import React from 'react';
     import ReactDOM from 'react-dom';
@@ -257,10 +259,10 @@ react-app-qiankun-sub
 │   ├── index.html
 │   └── manifest.json
 └── src
-    └── components
-          └── LibVersion.jsx
-    └── pages
-          └── Home.jsx
+    ├── components
+    │     └── LibVersion.jsx
+    ├── pages
+    │     └── Home.jsx
     ├── public-path.js // __webpack_public_path__
     ├── App.css
     ├── App.js         // 子应用布局
@@ -268,14 +270,14 @@ react-app-qiankun-sub
     ├── index.css
     ├── index.js       // 子应用入口，挂载dom导出相应的生命周期钩子
     ├── logo.svg
-    └── reportWebVitals.js
+    ├── reportWebVitals.js
     └── setupTests.js
 ```
 
 #### react子应用（开撸代码）
 + 新增1个[.env](https://github.com/motdotla/dotenv)文件，主要配置本地环境
   
-  此处PORT需要和基座REACT_APP_SUB_REACT端口保持一致
+  此处PORT需要和基座```REACT_APP_SUB_REACT```端口保持一致
   ```js
     PORT=2233
   ```
@@ -286,7 +288,7 @@ react-app-qiankun-sub
     <div id="sub-react-root"></div>
   ```
 
-+ 新增src/public-path.js，__webpack_public_path__
++ 新增[src/public-path.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
   ```js
     if (window.__POWERED_BY_QIANKUN__) {
       // eslint-disable-next-line no-undef
@@ -294,9 +296,9 @@ react-app-qiankun-sub
     }
   ```
 
-+ 修改src/App.js，主要完成子应用页面布局（略，见源码）
++ 修改[src/App.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/App.js)，主要完成子应用页面布局（略，见源码）
   
-+ 修改src/index.js，微（子）应用导出相应的生命周期钩子
++ 修改[src/index.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/index.js)，微（子）应用导出相应的生命周期钩子
   ```js
     import './public-path';
     import React from 'react';
@@ -348,7 +350,7 @@ react-app-qiankun-sub
     }
   ```
 
-+ 增加config-overrides.js，覆盖create-react-app的webpack配置
++ 增加[config-overrides.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/config-overrides.js)，覆盖create-react-app的webpack配置
   ```js
     const { name } = require('./package');
     module.exports = {
@@ -419,12 +421,12 @@ vue-cli-qiankun-sub
 │   ├── index.html
 │   └── manifest.json
 └── src
-    └── components
-         └── HelloWorld.vue
-    └── router
-          └── index.js
-    └── views
-          └── Home.vue
+    ├── components
+    │    └── HelloWorld.vue
+    ├── router
+    │     └── index.js
+    ├── views
+    │     └── Home.vue
     ├── public-path.js  // __webpack_public_path__
     ├── App.vue         // 子应用布局
     └── main.js         // 子应用入口，挂载dom导出相应的生命周期钩子
@@ -433,7 +435,7 @@ vue-cli-qiankun-sub
 #### vue子应用（开撸代码）
 + 新增1个[.env](https://github.com/motdotla/dotenv)文件，主要配置本地环境
   
-  此处PORT需要和基座REACT_APP_SUB_VUE端口保持一致
+  此处PORT需要和基座```REACT_APP_SUB_VUE```端口保持一致
   ```js
     PORT=3344
   ```
@@ -444,7 +446,7 @@ vue-cli-qiankun-sub
     <div id="sub-vue-roott"></div>
   ```
 
-+ 新增src/public-path.js，__webpack_public_path__
++ 新增[src/public-path.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
   ```js
     if (window.__POWERED_BY_QIANKUN__) {
       // eslint-disable-next-line no-undef
@@ -452,9 +454,9 @@ vue-cli-qiankun-sub
     }
   ```
 
-+ 修改src/App.vue，主要完成子应用页面布局（略，见源码）
++ 修改[src/App.vue](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/App.vue)，主要完成子应用页面布局（略，见源码）
   
-+ 修改src/mian.js，微（子）应用导出相应的生命周期钩子
++ 修改[src/mian.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/main.js)，微（子）应用导出相应的生命周期钩子
   ```js
     import './public-path';
     import { createApp } from 'vue';
@@ -521,7 +523,7 @@ vue-cli-qiankun-sub
     }
   ```
 
-+ 增加vue.config.js配置文件
++ 增加[vue.config.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/vue.config.js)配置文件
   ```js
     const path = require('path');
     const { name } = require('./package');
@@ -530,7 +532,7 @@ vue-cli-qiankun-sub
       return path.join(__dirname, dir);
     }
 
-    const port = 7105;
+    const port = process.env.PORT;
 
     module.exports = {
       outputDir: 'dist',
@@ -595,6 +597,7 @@ http://localhost:3344/
 ```
 
 ### 部署
+![](https://i.loli.net/2021/04/27/g3iASuJNbG5pU7F.jpg)
 
 #### 备选方案
 + 1.单域名部署；
@@ -634,7 +637,7 @@ react-app-qiankun-main
 └── index.html
 ```
 
-#### 部署（以下只记录核心部署过程，过于简陋）
+#### 部署（以下只初略记录核心部署过程，过于简陋）
 + 前提：已购云服务器，并已安装[docker](https://help.aliyun.com/document_detail/51853.html?spm=a2c4g.11186623.4.1.20aa4c07DdFvHb)、[nginx](https://hub.docker.com/_/nginx)、[jenkins](https://www.jenkins.io/zh/doc/book/installing/)、3个独立域名及ssl证书
 
 + 本地编码，github存储代码，分别[新建3个公开代码库](https://github.com/new)
@@ -770,20 +773,20 @@ http {
 
 docker运行nginx命令，重点关注```-v 挂载目录```
 ```bash
-docker run --name nginx4 -p 80:80 -p 443:443 -v /root/nginx/config/nginx.conf:/etc/nginx/nginx.conf -v /root/nginx/cert:/etc/nginx/cert -v /root/nginx/logs:/var/log/nginx -v /srv/www/bot:/etc/nginx/www/bot -v /srv/www/react-app-qiankun-main:/etc/nginx/www/react-app-qiankun-main -v /srv/www/react-app-qiankun-sub:/etc/nginx/www/react-app-qiankun-sub -v /srv/www/vue-cli-qiankun-sub:/etc/nginx/www/vue-cli-qiankun-sub --restart=always -d nginx:stable
+docker run --name nginx -p 80:80 -p 443:443 -v /root/nginx/config/nginx.conf:/etc/nginx/nginx.conf -v /root/nginx/cert:/etc/nginx/cert -v /root/nginx/logs:/var/log/nginx -v /srv/www/react-app-qiankun-main:/etc/nginx/www/react-app-qiankun-main -v /srv/www/react-app-qiankun-sub:/etc/nginx/www/react-app-qiankun-sub -v /srv/www/vue-cli-qiankun-sub:/etc/nginx/www/vue-cli-qiankun-sub --restart=always -d nginx:stable
 ```
 
 
 ### 总结
-没有总结，遇到的问题太多，笔记总结的太杂，后期再分享出来
+没有总结，遇到的问题太多，笔记总结的太杂，后期再整理分享
 
 #### 线上预览地址：https://qiankun.xiaoqiang.tech
-子应用线上也可独立预览
+
+#### 子应用线上也可独立预览
 
 react子应用预览：https://react.xiaoqiang.tech
 
 vue子应用预览：https://vue.xiaoqiang.tech
-
 
 ## 参考链接
 [qiankun](https://qiankun.umijs.org/)
