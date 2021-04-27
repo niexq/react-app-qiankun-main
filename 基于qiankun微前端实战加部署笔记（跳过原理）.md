@@ -2,6 +2,8 @@
 ## 基于qiankun微前端实战加部署笔记
 因业务需要，以下文字纯个人qiankun实战学习笔记，不谈原理只记操作过程，内容难免有纰漏部分，敬请不吝赐教批评指正。
 
+![](https://i.loli.net/2021/04/23/BN6E45ZCUxtLhFX.gif)
+
 ### 预备知识点
 + 已对[qiankun](https://qiankun.umijs.org/)微前端有了初步认识;
 + 熟悉[react](https://react.docschina.org/)、[vuejs](https://cn.vuejs.org/);
