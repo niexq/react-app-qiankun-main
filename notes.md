@@ -46,6 +46,7 @@ yarn add qiankun # 或者 npm i qiankun -S
 ```
 
 + 3.目录结构
+
 ```js
 react-app-qiankun-main
 ├── .env.local             // 本地环境
@@ -78,6 +79,7 @@ react-app-qiankun-main
 #### 基座（开撸代码）
 + 新增3个[.env](https://github.com/motdotla/dotenv)文件，主要配置不同环境的对应的域名
   + .env/.env.development.local（此处暂未区分本地和测试的域名，所有环境变量值都保持一致）
+
   ```js
     REACT_APP_SUB_REACT=//localhost:2233/react
     REACT_APP_SUB_VUE=//localhost:3344/vue
@@ -85,18 +87,21 @@ react-app-qiankun-main
   ```
 
   + .env.production.local （生产环境）
+
   ```js
-    REACT_APP_SUB_REACT = //qiankun.xiaoqiang.tech/react
-    REACT_APP_SUB_VUE = //qiankun.xiaoqiang.tech/vue
+    REACT_APP_SUB_REACT = https://react.xiaoqiang.tech
+    REACT_APP_SUB_VUE = https://vue.xiaoqiang.tech
   ```
 
 + 修改index.html挂载dom的默认id，防止与子应用id冲突
+
   ```js
     // 默认root => main-root
     <div id="main-root"></div>
   ```
 
 + 新增[store/store.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/store/store.js)，配置主应用的全局状态
+
   ```js
     import { initGlobalState } from 'qiankun';
 
@@ -123,6 +128,7 @@ react-app-qiankun-main
   ```
 
 + 修改[src/App.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/App.js)，主要完成基座页面布局及增加挂载子应用的dom（id="subapp-viewport"）
+
   ```js
     function App(props) {
       // ...省略，详细可见源码
@@ -146,6 +152,7 @@ react-app-qiankun-main
   ```
   
 + 增加[apps.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/apps.js)，子应用的配置
+
   ```js
     import store from './store/store'
     const microApps = [
@@ -176,6 +183,7 @@ react-app-qiankun-main
     export default apps
   ```
 + 修改[src/index.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/index.js)，主应用中注册微（子）应用
+
   ```js
     import React from 'react';
     import ReactDOM from 'react-dom';
@@ -246,6 +254,7 @@ npm i react-router-dom --save
 ```
 
 + 3.目录结构
+
 ```js
 react-app-qiankun-sub
 ├── .env                 // 本地环境
@@ -278,17 +287,20 @@ react-app-qiankun-sub
 + 新增1个[.env](https://github.com/motdotla/dotenv)文件，主要配置本地环境
   
   此处PORT需要和基座```REACT_APP_SUB_REACT```端口保持一致
+
   ```js
     PORT=2233
   ```
 
 + 修改index.html挂载dom的默认id，防止与基座及其他子应用id冲突
+
   ```js
     // 默认root => sub-react-root
     <div id="sub-react-root"></div>
   ```
 
 + 新增[src/public-path.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
+
   ```js
     if (window.__POWERED_BY_QIANKUN__) {
       // eslint-disable-next-line no-undef
@@ -299,6 +311,7 @@ react-app-qiankun-sub
 + 修改[src/App.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/App.js)，主要完成子应用页面布局（略，见源码）
   
 + 修改[src/index.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/index.js)，微（子）应用导出相应的生命周期钩子
+
   ```js
     import './public-path';
     import React from 'react';
@@ -351,6 +364,7 @@ react-app-qiankun-sub
   ```
 
 + 增加[config-overrides.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/config-overrides.js)，覆盖create-react-app的webpack配置
+
   ```js
     const { name } = require('./package');
     module.exports = {
@@ -377,7 +391,8 @@ react-app-qiankun-sub
     }
   ```
 + 修改package.json
-  ```js
+
+  ```json
     "scripts": {
       -   "start": "react-scripts start",
       +   "start": "react-app-rewired start",
@@ -407,6 +422,7 @@ npm i vue-router --save
 ```
 
 + 3.目录结构
+
 ```js
 vue-cli-qiankun-sub
 ├── .env                 // 本地环境
@@ -436,17 +452,20 @@ vue-cli-qiankun-sub
 + 新增1个[.env](https://github.com/motdotla/dotenv)文件，主要配置本地环境
   
   此处PORT需要和基座```REACT_APP_SUB_VUE```端口保持一致
+
   ```js
     PORT=3344
   ```
 
 + 修改index.html挂载dom的默认id，防止与基座及其他子应用id冲突
+
   ```js
     // 默认root => sub-vue-root
-    <div id="sub-vue-roott"></div>
+    <div id="sub-vue-root"></div>
   ```
 
 + 新增[src/public-path.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
+
   ```js
     if (window.__POWERED_BY_QIANKUN__) {
       // eslint-disable-next-line no-undef
@@ -457,6 +476,7 @@ vue-cli-qiankun-sub
 + 修改[src/App.vue](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/App.vue)，主要完成子应用页面布局（略，见源码）
   
 + 修改[src/mian.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/main.js)，微（子）应用导出相应的生命周期钩子
+
   ```js
     import './public-path';
     import { createApp } from 'vue';
@@ -524,6 +544,7 @@ vue-cli-qiankun-sub
   ```
 
 + 增加[vue.config.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/vue.config.js)配置文件
+
   ```js
     const path = require('path');
     const { name } = require('./package');
@@ -568,7 +589,8 @@ vue-cli-qiankun-sub
 
   ```
 + 修改package.json
-  ```js
+
+  ```json
     "scripts": {
       +   "start": "vue-cli-service serve",
     },
@@ -582,16 +604,19 @@ vue-cli-qiankun-sub
 以上操作完后，可以直接通过基座预览，子应用也可独立预览
 
 #### 基座预览
+
 ```js
 http://localhost:1122/
 ```
 
 #### react子应用预览
+
 ```js
 http://localhost:2233/
 ```
 
 #### vue子应用预览
+
 ```js
 http://localhost:3344/
 ```
@@ -601,6 +626,7 @@ http://localhost:3344/
 
 #### 备选方案
 + 1.单域名部署；
+
 ```js
 // 基座：https://qiankun.xiaoqiang.tech
 // react子应用：https://qiankun.xiaoqiang.tech/react
@@ -616,6 +642,7 @@ react-app-qiankun
 ```
 
 + 2.多域名独立部署；（当篇笔记选择了多域名部署）
+
 ```js
 // 基座：https://qiankun.xiaoqiang.tech
 // 编译后服务器项目独立存储目录
@@ -641,6 +668,7 @@ react-app-qiankun-main
 + 前提：已购云服务器，并已安装[docker](https://help.aliyun.com/document_detail/51853.html?spm=a2c4g.11186623.4.1.20aa4c07DdFvHb)、[nginx](https://hub.docker.com/_/nginx)、[jenkins](https://www.jenkins.io/zh/doc/book/installing/)、3个独立域名及ssl证书
 
 + 本地编码，github存储代码，分别[新建3个公开代码库](https://github.com/new)
+
 ```js
 // 基座：react-app-qiankun-main 存储到 https://github.com/niexq/react-app-qiankun-main
 // react子应用：react-app-qiankun-sub 存储到 https://github.com/niexq/react-app-qiankun-sub
@@ -663,7 +691,8 @@ cp -rf /var/jenkins_home/workspace/react-app-qiankun-main/build /srv/www/react-a
 
 + 使用nginx代理
 nginx.conf
-```json
+
+```nginx
 
 user root;
 worker_processes  1;
@@ -787,6 +816,8 @@ docker run --name nginx -p 80:80 -p 443:443 -v /root/nginx/config/nginx.conf:/et
 react子应用预览：https://react.xiaoqiang.tech
 
 vue子应用预览：https://vue.xiaoqiang.tech
+
+源码地址：https://github.com/niexq/react-app-qiankun-main
 
 ## 参考链接
 [qiankun](https://qiankun.umijs.org/)
