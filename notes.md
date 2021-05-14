@@ -8,7 +8,7 @@
 ![](https://i.loli.net/2021/04/27/RQycNgEzJBv5Som.png)
 ### 预备知识点
 + 已对[qiankun](https://qiankun.umijs.org/)微前端有了初步认识;
-+ 熟悉[react](https://react.docschina.org/)、[vuejs](https://cn.vuejs.org/);
++ 熟悉[react](https://react.docschina.org/)、[vue](https://cn.vuejs.org/);
 + 了解[github](https://github.com/)、[docker](https://www.docker.com/)、[jenkins](https://www.jenkins.io/)、[nginx](http://nginx.org/);
 
 ### 技术栈
@@ -660,7 +660,7 @@ react-app-qiankun-sub
 ```js
 // vue子应用：https://vue.xiaoqiang.tech
 // 编译后服务器项目独立存储目录
-react-app-qiankun-main
+vue-cli-qiankun-sub
 └── index.html
 ```
 
