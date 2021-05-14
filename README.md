@@ -2,6 +2,9 @@
 
 > Based on create-react-app, qiankun builds and deploys a simple main demo
 
+## Link
+[基于qiankun微前端实战+部署粗略笔记（跳过原理）](https://juejin.cn/post/6955861815884513288)
+
 ## Important
 
 Please clone the sub-project and run the sub-project first, and preview the effect together with it
