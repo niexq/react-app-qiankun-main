@@ -833,7 +833,7 @@ Source address：https://github.com/niexq/react-app-qiankun-main
 
 ### 💯 Is it feasible to skip the cumbersome steps above?
 
-[Wise choice](./use.md)
+[Wise choice](./use.en-US.md)
 
 ## 🏆 Written at the end
 
