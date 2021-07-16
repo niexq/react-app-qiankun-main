@@ -1,63 +1,61 @@
 # 💫 react-app-qiankun-main
 
-> 基于create-react-app，qiankun构建并部署的测试用例（react主应用）
+> Based on create-react-app, qiankun builds and deploys a simple main demo （react main demo）
 
-简体中文 | [English](./README.en-US.md)
-
-## 🚀 基于qiankun微前端实战+部署粗略笔记（跳过原理）
-因业务需要，以下文字纯个人qiankun实战学习笔记，不谈原理只记操作过程，内容难免有纰漏部分，敬请不吝赐教批评指正。
+## 🚀 Based on qiankun micro-front-end actual combat + rough notes on deployment (skip principle)
+Due to business needs, the following text is purely personal qiankun practical study notes, not to talk about the principle, only the operation process, the content will inevitably have omissions, please feel free to criticize and correct.
 
 ![](https://i.loli.net/2021/04/23/BN6E45ZCUxtLhFX.gif)
 
-### ✨ 目标场景
+### ✨ Target scene
 ![](https://i.loli.net/2021/04/27/RQycNgEzJBv5Som.png)
 
-### 📝 预备知识点
-+ 已对[qiankun](https://qiankun.umijs.org/)微前端有了初步认识;
-+ 熟悉[react](https://react.docschina.org/)、[vue](https://cn.vuejs.org/);
-+ 了解[github](https://github.com/)、[docker](https://www.docker.com/)、[jenkins](https://www.jenkins.io/)、[nginx](http://nginx.org/);
+### 📝 Preliminary knowledge points
++ Have a preliminary understanding of [qiankun](https://qiankun.umijs.org/) micro front end;
++ Familiar with [react](https://react.docschina.org/)、[vue](https://cn.vuejs.org/);
++ Understand [github](https://github.com/)、[docker](https://www.docker.com/)、[jenkins](https://www.jenkins.io/)、[nginx](http://nginx.org/);
 
-### 🔧 技术栈
+### 🔧 Technology stack
 
-#### 🍔 基座
-+ 使用[create-react-app](https://github.com/facebook/create-react-app)初始化项目;
-+ 安装```"qiankun": "^2.4.0"```;
-+ 代码地址：[react-app-qiankun-main](https://github.com/niexq/react-app-qiankun-main);
-+ 独立仓库，独立部署，独立域名：https://qiankun.xiaoqiang.tech;
+#### 🍔 React main application
++ Use [create-react-app](https://github.com/facebook/create-react-app) to initialize the project;
++ Install ```"qiankun": "^2.4.0"```;
++ Repositorie address：[react-app-qiankun-main](https://github.com/niexq/react-app-qiankun-main);
++ Independent repositorie, independent deployment, independent domain name：https://qiankun.xiaoqiang.tech;
 
-#### 🍟 react子应用
-+ 使用[create-react-app](https://github.com/facebook/create-react-app)初始化项目;
-+ 安装```"react-app-rewired": "^2.1.8"```、```"react-router-dom": "^5.2.0"```;
-+ 代码地址：[react-app-qiankun-sub](https://github.com/niexq/react-app-qiankun-sub);
-+ 独立仓库，独立部署，独立域名：https://react.xiaoqiang.tech;
+#### 🍟 React sub application
++ Use [create-react-app](https://github.com/facebook/create-react-app) to initialize the project;
++ Install ```"react-app-rewired": "^2.1.8"```、```"react-router-dom": "^5.2.0"```;
++ Repositorie address：[react-app-qiankun-sub](https://github.com/niexq/react-app-qiankun-sub);
++ Independent repositorie, independent deployment, independent domain name：https://react.xiaoqiang.tech;
 
-#### 🌮 vue子应用
-+ 使用[vue-cli](https://github.com/vuejs/vue-cli)初始化项目，对应```"vue": "^3.0.0"```;
-+ 安装```"vue-router": "^4.0.0-beta.11"```;
-+ 代码地址：[vue-cli-qiankun-sub](https://github.com/niexq/vue-cli-qiankun-sub);
-+ 独立仓库，独立部署，独立域名：https://vue.xiaoqiang.tech;
+#### 🌮 Vue sub application
++ Use [vue-cli](https://github.com/vuejs/vue-cli) to initialize the project，correspond```"vue": "^3.0.0"```;
++ Install ```"vue-router": "^4.0.0-beta.11"```;
++ Repositorie address：[vue-cli-qiankun-sub](https://github.com/niexq/vue-cli-qiankun-sub);
++ Independent repositorie, independent deployment, independent domain name：https://vue.xiaoqiang.tech;
 
-### 🚴‍♂️ 快速上手
+### 🚴‍♂️ Get started quickly
 
-#### 🍔 基座
+#### 🍔 React main application
 
-+ 1.初始化项目
++ 1.Initialize the project
 ```bash
 npm init react-app react-app-qiankun-main
 ```
 
-+ 2.安装```qiankun```
++ 2.Install ```qiankun```
 ```bash
-yarn add qiankun # 或者 npm i qiankun -S
+yarn add qiankun # Or npm i qiankun -S
 ```
 
-+ 3.目录结构
++ 3.Directory Structure
 
 ```js
 react-app-qiankun-main
-├── .env.local             // 本地环境
-├── .env.development.local // 测试环境
-├── .env.production.local  // 生产环境
+├── .env.local             // Local environment
+├── .env.development.local // Develop environment
+├── .env.production.local  // Production environment
 ├── README.md
 ├── node_modules
 ├── package.json
@@ -70,21 +68,21 @@ react-app-qiankun-main
     ├── components
     │     └── Loading.jsx
     ├── store
-    │     └── store.js    // 主应用的全局状态
-    ├── apps.js           // 子应用配置
+    │     └── store.js    // The global state of the main application
+    ├── apps.js           // Sub-application configuration
     ├── App.css
-    ├── App.js            // 基座布局，挂载子应用
+    ├── App.js            // Base layout, mount sub-applications
     ├── App.test.js
     ├── index.css
-    ├── index.js          // 主应用中注册微应用
+    ├── index.js          // Register the micro application in the main application
     ├── logo.svg
     ├── reportWebVitals.js
     └── setupTests.js
 ```
 
-#### 🍔 基座（开撸代码）
-+ 新增3个[.env](https://github.com/motdotla/dotenv)文件，主要配置不同环境的对应的域名
-  + .env/.env.development.local（此处暂未区分本地和测试的域名，所有环境变量值都保持一致）
+#### 🍔 React main application（go code）
++ Added 3 [.env](https://github.com/motdotla/dotenv) files，Mainly configure the corresponding domain names for different environments
+  + .env/.env.development.local（There is no distinction between local and develop domain names here, and all environment variable values remain the same）
 
   ```js
     REACT_APP_SUB_REACT=//localhost:2233/react
@@ -92,21 +90,21 @@ react-app-qiankun-main
     PORT=1122
   ```
 
-  + .env.production.local （生产环境）
+  + .env.production.local （Production environment）
 
   ```js
     REACT_APP_SUB_REACT = https://react.xiaoqiang.tech
     REACT_APP_SUB_VUE = https://vue.xiaoqiang.tech
   ```
 
-+ 修改 ```index.html``` 挂载dom的默认id，防止与子应用id冲突
++ Modify the default id of the ```index.html``` mounted dom to prevent conflicts with sub-application id
 
   ```js
-    // 默认root => main-root
+    // default root => main-root
     <div id="main-root"></div>
   ```
 
-+ 新增[store/store.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/store/store.js)，配置主应用的全局状态
++ Added [store/store.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/store/store.js)，Configure the global state of the main application
 
   ```js
     import { initGlobalState } from 'qiankun';
@@ -125,7 +123,7 @@ react-app-qiankun-main
       }
     })
 
-    // 非官方api，https://github.com/umijs/qiankun/pull/729
+    // unofficial api，https://github.com/umijs/qiankun/pull/729
     actions.getGlobalState = (key) => {
       return key ? initialState[key] : initialState;
     }
@@ -133,22 +131,22 @@ react-app-qiankun-main
     export default actions;
   ```
 
-+ 修改[src/App.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/App.js)，主要完成基座页面布局及增加挂载子应用的dom（id="subapp-viewport"）
++ Modify [src/App.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/App.js)，Mainly complete the base page layout and increase the dom of the sub-application（id="subapp-viewport"）
 
   ```js
     function App(props) {
-      // ...省略，详细可见源码
+      // ...Omit, see the source code for details
       return (
         <>
           <div className="mainapp">
-            {/* 标题栏 */}
+            {/* title */}
             <header className="mainapp-header">
               <ul className="mainapp-header-sidemenu">
-                {/* 侧边栏 省略，详细可见源码 */}
+                {/* Sidebar Omitted, see the source code for details */}
               </ul>
             </header>
             <div className="mainapp-main">
-              {/* 子应用 */}
+              {/* sub application */}
               <main id="subapp-viewport"></main>
             </div>
           </div>
@@ -157,7 +155,7 @@ react-app-qiankun-main
     }
   ```
   
-+ 增加[apps.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/apps.js)，子应用的配置
++ Added [apps.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/apps.js)，Sub-application configuration
 
   ```js
     import store from './store/store'
@@ -188,7 +186,7 @@ react-app-qiankun-main
 
     export default apps
   ```
-+ 修改[src/index.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/index.js)，主应用中注册微（子）应用
++ Modify [src/index.js](https://github.com/niexq/react-app-qiankun-main/blob/main/src/index.js)，Register the micro (sub) application in the main application
 
   ```js
     import React from 'react';
@@ -241,30 +239,30 @@ react-app-qiankun-main
 
     start();
   ```
-+ 本地启动
++ Local start
   ```bash
     npm start
   ```
 
-#### 🍟 react子应用
+#### 🍟 React sub application
 
-+ 1.初始化项目
++ 1.Initialize the project
 ```bash
 npm init react-app react-app-qiankun-sub
 ```
 
-+ 2.安装```react-app-rewired```、```react-router-dom```
++ 2.Install ```react-app-rewired```、```react-router-dom```
 ```bash
 npm i react-app-rewired --save-dev
 npm i react-router-dom --save
 ```
 
-+ 3.目录结构
++ 3.Directory Structure
 
 ```js
 react-app-qiankun-sub
-├── .env                 // 本地环境
-├── config-overrides.js  // 覆盖create-react-app的webpack配置
+├── .env                 // Local environment
+├── config-overrides.js  // Override the webpack configuration of create-react-app
 ├── README.md
 ├── node_modules
 ├── package.json
@@ -280,32 +278,32 @@ react-app-qiankun-sub
     │     └── Home.jsx
     ├── public-path.js // __webpack_public_path__
     ├── App.css
-    ├── App.js         // 子应用布局
+    ├── App.js         // Sub-application layout
     ├── App.test.js
     ├── index.css
-    ├── index.js       // 子应用入口，挂载dom导出相应的生命周期钩子
+    ├── index.js       // Sub-application entrance, mount dom to export the corresponding life cycle hook
     ├── logo.svg
     ├── reportWebVitals.js
     └── setupTests.js
 ```
 
-#### 🍟 react子应用（开撸代码）
-+ 新增1个[.env](https://github.com/motdotla/dotenv)文件，主要配置本地环境
+#### 🍟 React sub application（go code）
++ Added 1 [.env](https://github.com/motdotla/dotenv) files，Mainly configure the local environment
   
-  此处PORT需要和基座```REACT_APP_SUB_REACT```端口保持一致
+  Here PORT needs to be consistent with the main application ```REACT_APP_SUB_REACT``` port
 
   ```js
     PORT=2233
   ```
 
-+ 修改 ```index.html``` 挂载dom的默认id，防止与基座及其他子应用id冲突
++ Modify the default id of the ```index.html``` mounted dom to prevent conflicts with the id of the base and other sub-applications
 
   ```js
-    // 默认root => sub-react-root
+    // default root => sub-react-root
     <div id="sub-react-root"></div>
   ```
 
-+ 新增[src/public-path.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
++ Added [src/public-path.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
 
   ```js
     if (window.__POWERED_BY_QIANKUN__) {
@@ -314,9 +312,9 @@ react-app-qiankun-sub
     }
   ```
 
-+ 修改[src/App.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/App.js)，主要完成子应用页面布局（略，见源码）
++ Modify [src/App.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/App.js)，Mainly complete the sub-application page layout (omitted, see source code)
   
-+ 修改[src/index.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/index.js)，微（子）应用导出相应的生命周期钩子
++ Modify [src/index.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/src/index.js)Micro (sub) applications export the corresponding life cycle hooks
 
   ```js
     import './public-path';
@@ -369,7 +367,7 @@ react-app-qiankun-sub
     }
   ```
 
-+ 增加[config-overrides.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/config-overrides.js)，覆盖create-react-app的webpack配置
++ Added [config-overrides.js](https://github.com/niexq/react-app-qiankun-sub/blob/main/config-overrides.js)，Override the webpack configuration of create-react-app
 
   ```js
     const { name } = require('./package');
@@ -396,7 +394,7 @@ react-app-qiankun-sub
       }
     }
   ```
-+ 修改 ```package.json```
++ Modify ````package.json```
 
   ```json
     "scripts": {
@@ -409,30 +407,30 @@ react-app-qiankun-sub
       "eject": "react-scripts eject"
     },
   ```
-+ 本地启动
++ Local start
   ```bash
     npm start
   ```
 
-#### 🌮 vue子应用
+#### 🌮 Vue sub application
 
-+ 1.初始化项目
++ 1.Initialize the project
 ```bash
 npm install -g @vue/cli-service-global
 vue create vue-cli-qiankun-sub
 ```
 
-+ 2.安装```vue-router```
++ 2.Install ```vue-router```
 ```bash
 npm i vue-router --save
 ```
 
-+ 3.目录结构
++ 3.Directory Structure
 
 ```js
 vue-cli-qiankun-sub
-├── .env                 // 本地环境
-├── vue.config.js        // vue可选的配置文件
+├── .env                 // Local environment
+├── vue.config.js        // Vue optional configuration file
 ├── babel.config.js
 ├── README.md
 ├── node_modules
@@ -450,27 +448,27 @@ vue-cli-qiankun-sub
     ├── views
     │     └── Home.vue
     ├── public-path.js  // __webpack_public_path__
-    ├── App.vue         // 子应用布局
-    └── main.js         // 子应用入口，挂载dom导出相应的生命周期钩子
+    ├── App.vue         // Sub-application layout
+    └── main.js         // Sub-application entrance, mount dom to export the corresponding life cycle hook
 ```
 
-#### 🌮 vue子应用（开撸代码）
-+ 新增1个[.env](https://github.com/motdotla/dotenv)文件，主要配置本地环境
+#### 🌮 Vue sub application（go code）
++ Added 1 [.env](https://github.com/motdotla/dotenv) files，Mainly configure the local environment
   
-  此处PORT需要和基座```REACT_APP_SUB_VUE```端口保持一致
+Here PORT needs to be consistent with the main application ```REACT_APP_SUB_VUE``` port
 
   ```js
     PORT=3344
   ```
 
-+ 修改 ```index.html``` 挂载dom的默认id，防止与基座及其他子应用id冲突
++ Modify the default id of the ```index.html``` mounted dom to prevent conflicts with the id of the base and other sub-applications
 
   ```js
-    // 默认root => sub-vue-root
+    // default root => sub-vue-root
     <div id="sub-vue-root"></div>
   ```
 
-+ 新增[src/public-path.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
++ Added [src/public-path.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/public-path.js)，__webpack_public_path__
 
   ```js
     if (window.__POWERED_BY_QIANKUN__) {
@@ -479,9 +477,9 @@ vue-cli-qiankun-sub
     }
   ```
 
-+ 修改[src/App.vue](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/App.vue)，主要完成子应用页面布局（略，见源码）
++ Modify [src/App.vue](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/App.vue)，Mainly complete the sub-application page layout (omitted, see source code)
   
-+ 修改[src/mian.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/main.js)，微（子）应用导出相应的生命周期钩子
++ Modify [src/mian.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/src/main.js)，Micro (sub) applications export the corresponding life cycle hooks
 
   ```js
     import './public-path';
@@ -549,7 +547,7 @@ vue-cli-qiankun-sub
     }
   ```
 
-+ 增加[vue.config.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/vue.config.js)配置文件
++ Added [vue.config.js](https://github.com/niexq/vue-cli-qiankun-sub/blob/main/vue.config.js) Configuration file
 
   ```js
     const path = require('path');
@@ -577,7 +575,7 @@ vue-cli-qiankun-sub
           'Access-Control-Allow-Origin': '*',
         },
       },
-      // 自定义webpack配置
+      // Custom webpack configuration
       configureWebpack: {
         resolve: {
           alias: {
@@ -585,7 +583,7 @@ vue-cli-qiankun-sub
           },
         },
         output: {
-          // 把子应用打包成 umd 库格式
+          // Package the sub-application into umd library format
           library: `${name}-[name]`,
           libraryTarget: 'umd',
           jsonpFunction: `webpackJsonp_${name}`,
@@ -594,50 +592,50 @@ vue-cli-qiankun-sub
     };
 
   ```
-+ 修改 ```package.json```
++ Modify ```package.json```
 
   ```json
     "scripts": {
       +   "start": "vue-cli-service serve",
     },
   ```
-+ 本地启动
++ Local start
   ```bash
     npm start
   ```
 
-### 🏄 预览
+### 🏄 Online preview
 以上操作完后，可以直接通过基座预览，子应用也可独立预览
 
-#### 基座预览
+#### Main application preview
 
 ```js
 http://localhost:1122/
 ```
 
-#### react子应用预览
+#### React sub application preview
 
 ```js
 http://localhost:2233/
 ```
 
-#### vue子应用预览
+#### Vue sub application preview
 
 ```js
 http://localhost:3344/
 ```
 
-### 🔨 部署
+### 🔨 Deploy
 ![](https://i.loli.net/2021/04/27/g3iASuJNbG5pU7F.jpg)
 
-#### 备选方案
-+ 1.单域名部署；
+#### Deploy options
++ 1.Single domain deployment；
 
 ```js
-// 基座：https://qiankun.xiaoqiang.tech
-// react子应用：https://qiankun.xiaoqiang.tech/react
-// vue子应用：https://qiankun.xiaoqiang.tech/vue
-// 编译后服务器存储目录
+// Main application：https://qiankun.xiaoqiang.tech
+// React sub application：https://qiankun.xiaoqiang.tech/react
+// Vue sub application：https://qiankun.xiaoqiang.tech/vue
+// Server storage directory after compilation
 react-app-qiankun
 ├── main
 │   └── index.html
@@ -647,46 +645,46 @@ react-app-qiankun
     └── index.html
 ```
 
-+ 2.多域名独立部署；（当篇笔记选择了多域名部署）
++ 2.Multi-domain independent deployment; (multi-domain deployment was selected in the note)
 
 ```js
-// 基座：https://qiankun.xiaoqiang.tech
-// 编译后服务器项目独立存储目录
+// Main application：https://qiankun.xiaoqiang.tech
+// Independent storage directory of the server project after compilation
 react-app-qiankun-main
   └── index.html
 ```
 
 ```js
-// react子应用：https://react.xiaoqiang.tech
-// 编译后服务器项目独立存储目录
+// React sub application：https://react.xiaoqiang.tech
+// Independent storage directory of the server project after compilation
 react-app-qiankun-sub
   └── index.html
 ```
 
 ```js
-// vue子应用：https://vue.xiaoqiang.tech
-// 编译后服务器项目独立存储目录
+// Vue sub application：https://vue.xiaoqiang.tech
+// Independent storage directory of the server project after compilation
 vue-cli-qiankun-sub
 └── index.html
 ```
 
-#### 部署（以下只初略记录部署过程，过于简陋）
-+ 前提：已购云服务器，并已安装[docker](https://help.aliyun.com/document_detail/51853.html?spm=a2c4g.11186623.4.1.20aa4c07DdFvHb)、[nginx](https://hub.docker.com/_/nginx)、[jenkins](https://www.jenkins.io/zh/doc/book/installing/)、3个独立域名及ssl证书
+#### Deployment (the following is only a preliminary record of the deployment process, too simple)
++ Prerequisite: Cloud server has been purchased and installed [docker](https://help.aliyun.com/document_detail/51853.html?spm=a2c4g.11186623.4.1.20aa4c07DdFvHb)、[nginx](https://hub.docker.com/_/nginx)、[jenkins](https://www.jenkins.io/zh/doc/book/installing/)、3 independent domain names and ssl certificates
 
-+ 本地编码，github存储代码，分别[新建3个公开代码库](https://github.com/new)
++ Local coding, github storage code, respectively [Create 3 new public code repositories](https://github.com/new)
 
 ```js
-// 基座：react-app-qiankun-main 存储到 https://github.com/niexq/react-app-qiankun-main
-// react子应用：react-app-qiankun-sub 存储到 https://github.com/niexq/react-app-qiankun-sub
-// vue子应用：vue-cli-qiankun-sub 存储到 https://github.com/niexq/vue-cli-qiankun-sub
+// Main application：react-app-qiankun-main Store to https://github.com/niexq/react-app-qiankun-main
+// React sub application：react-app-qiankun-sub Store to https://github.com/niexq/react-app-qiankun-sub
+// Vue sub application：vue-cli-qiankun-sub Store to https://github.com/niexq/vue-cli-qiankun-sub
 ```
 
-+ [github,jenkins持续集成](https://www.cloudbees.com/blog/better-integration-between-jenkins-and-github-github-jenkins-plugin)
++ [github,jenkins CI](https://www.cloudbees.com/blog/better-integration-between-jenkins-and-github-github-jenkins-plugin)
 
 ```js
-// 详细配置步骤略
-// github webHooks设置
-// jenkins构建部分执行shell
+// Detailed configuration steps omitted
+// github webHooks Setup
+// Jenkins builds partial execution shell
 BUILD_ID=dontKillMe
 cd /var/jenkins_home/workspace/react-app-qiankun-main
 npm install
@@ -695,7 +693,7 @@ rm -rf /srv/www/react-app-qiankun-main
 cp -rf /var/jenkins_home/workspace/react-app-qiankun-main/build /srv/www/react-app-qiankun-main/
 ```
 
-+ 使用nginx代理
++ Use nginx proxy
 nginx.conf
 
 ```nginx
@@ -733,18 +731,18 @@ http {
 
     server {
         listen 443;
-        server_name qiankun.xiaoqiang.tech; # 你的域名
+        server_name qiankun.xiaoqiang.tech; # Your domain name
         ssl on;
-        root www/react-app-qiankun-main; # 前台文件存放文件夹，可改成别的
-        index index.html index.htm; # 上面配置的文件夹里面的index.html
-        ssl_certificate cert/5543142_qiankun.xiaoqiang.tech.pem;   #将domain name.pem替换成您证书的文件名。
-        ssl_certificate_key cert/5543142_qiankun.xiaoqiang.tech.key;   #将domain name.key替换成您证书的密钥文件名。
+        root www/react-app-qiankun-main; # The web file storage folder can be changed to something else
+        index index.html index.htm; # Index.html in the folder configured above
+        ssl_certificate cert/5543142_qiankun.xiaoqiang.tech.pem;   #Replace domain name.pem with the file name of your certificate.
+        ssl_certificate_key cert/5543142_qiankun.xiaoqiang.tech.key;   #Replace domain name.key with the key file name of your certificate.
         ssl_session_timeout 5m;
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         ssl_prefer_server_ciphers on;
         location / {
-          # 用于配合 browserHistory使用
+          # For use with browserHistory
           try_files $uri $uri/ /index.html;
           # root /srv/www/react-app-qiankun-main;
           # index index.html index.htm;
@@ -753,7 +751,7 @@ http {
 
     server {
         listen 443;
-        server_name react.xiaoqiang.tech; # 你的域名
+        server_name react.xiaoqiang.tech; # Your domain name
         add_header Access-Control-Allow-Origin *;
         add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
         add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
@@ -761,16 +759,16 @@ http {
             return 204;
         }
         ssl on;
-        root www/react-app-qiankun-sub; # 前台文件存放文件夹，可改成别的
-        index index.html index.htm; # 上面配置的文件夹里面的index.html
-        ssl_certificate cert/4325684_react.xiaoqiang.tech.pem;   #将domain name.pem替换成您证书的文件名。
-        ssl_certificate_key cert/4325684_react.xiaoqiang.tech.key;   #将domain name.key替换成您证书的密钥文件名。
+        root www/react-app-qiankun-sub; # The web file storage folder can be changed to something else
+        index index.html index.htm; # Index.html in the folder configured above
+        ssl_certificate cert/4325684_react.xiaoqiang.tech.pem;   #Replace domain name.pem with the file name of your certificate.
+        ssl_certificate_key cert/4325684_react.xiaoqiang.tech.key;   #Replace domain name.key with the key file name of your certificate.
         ssl_session_timeout 5m;
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         ssl_prefer_server_ciphers on;
         location / {
-          # 用于配合 browserHistory使用
+          # For use with browserHistory
           try_files $uri $uri/ /index.html;
           # root /srv/www/react-app-qiankun-sub;
           # index index.html index.htm;
@@ -779,7 +777,7 @@ http {
 
     server {
         listen 443;
-        server_name vue.xiaoqiang.tech; # 你的域名
+        server_name vue.xiaoqiang.tech; # Your domain name
         add_header Access-Control-Allow-Origin *;
         add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
         add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
@@ -787,16 +785,16 @@ http {
             return 204;
         }
         ssl on;
-        root www/vue-cli-qiankun-sub; # 前台文件存放文件夹，可改成别的
-        index index.html index.htm; # 上面配置的文件夹里面的index.html
-        ssl_certificate cert/5556275_vue.xiaoqiang.tech.pem;   #将domain name.pem替换成您证书的文件名。
-        ssl_certificate_key cert/5556275_vue.xiaoqiang.tech.key;   #将domain name.key替换成您证书的密钥文件名。
+        root www/vue-cli-qiankun-sub; # The web file storage folder can be changed to something else
+        index index.html index.htm; # Index.html in the folder configured above
+        ssl_certificate cert/5556275_vue.xiaoqiang.tech.pem;   #Replace domain name.pem with the file name of your certificate.
+        ssl_certificate_key cert/5556275_vue.xiaoqiang.tech.key;   #Replace domain name.key with the key file name of your certificate.
         ssl_session_timeout 5m;
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         ssl_prefer_server_ciphers on;
         location / {
-          # 用于配合 browserHistory使用
+          # For use with browserHistory
           try_files $uri $uri/ /index.html;
           # root /srv/www/vue-cli-qiankun-sub;
           # index index.html index.htm;
@@ -806,36 +804,37 @@ http {
 
 ```
 
-docker运行nginx命令，重点关注```-v 挂载目录```
+docker runs nginx commands, focusing on ```-v mount directory```
 ```bash
 docker run --name nginx -p 80:80 -p 443:443 -v /root/nginx/config/nginx.conf:/etc/nginx/nginx.conf -v /root/nginx/cert:/etc/nginx/cert -v /root/nginx/logs:/var/log/nginx -v /srv/www/react-app-qiankun-main:/etc/nginx/www/react-app-qiankun-main -v /srv/www/react-app-qiankun-sub:/etc/nginx/www/react-app-qiankun-sub -v /srv/www/vue-cli-qiankun-sub:/etc/nginx/www/vue-cli-qiankun-sub --restart=always -d nginx:stable
 ```
 
 
-### 🌴 总结
-没有总结，遇到的问题太多，笔记总结的太杂，后期再整理分享
+### 🌴 summary
+There is no summary, there are too many problems encountered, and the summary of the notes is too complicated, so I will organize and share later
 
-#### 线上预览地址：https://qiankun.xiaoqiang.tech
+#### Online preview address：https://qiankun.xiaoqiang.tech
 
-#### 子应用线上也可独立预览
+#### Sub-applications can also be previewed independently online
 
-react子应用预览：https://react.xiaoqiang.tech
+React sub application preview：https://react.xiaoqiang.tech
 
-vue子应用预览：https://vue.xiaoqiang.tech
+Vue sub application preview：https://vue.xiaoqiang.tech
 
-源码地址：https://github.com/niexq/react-app-qiankun-main
+Source address：https://github.com/niexq/react-app-qiankun-main
 
-### 🧩 参考链接
+## 🧩 Reference link
+
 [qiankun](https://qiankun.umijs.org/)
 
 [qiankun-example](https://juejin.cn/post/6875462470593904653)
 
-[qiankun 微前端方案实践及总结](https://juejin.cn/post/6844904185910018062)
+[qiankun Practice and summary of micro front-end solutions](https://juejin.cn/post/6844904185910018062)
 
-### 💯 跳过上述繁琐步骤是否可行
+### 💯 Is it feasible to skip the cumbersome steps above?
 
-[智慧的选择](./use.md)
+[Wise choice](./use.md)
 
-## 🏆 写在最后
+## 🏆 Written at the end
 
-能坚持到最后的都是勇士，```感谢阅读```，欢迎```star```鼓励
+Those who can persist to the end are the warriors, ```Thanks for reading```, welcome ```star``` to encourage
