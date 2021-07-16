@@ -65,4 +65,4 @@ npm install && npm run start
 
 ## 🎫 License
 
-MIT
+[MIT licensed](./LICENSE)
