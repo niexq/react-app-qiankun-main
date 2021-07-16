@@ -2,6 +2,8 @@
 
 > Based on create-react-app, qiankun builds and deploys a simple main demo （react main demo）
 
+[ 简体中文 ](./README.md) | English
+
 ## 🚀 Based on qiankun micro-front-end actual combat + rough notes on deployment (skip principle)
 Due to business needs, the following text is purely personal qiankun practical study notes, not to talk about the principle, only the operation process, the content will inevitably have omissions, please feel free to criticize and correct.
 
