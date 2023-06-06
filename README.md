@@ -839,3 +839,7 @@ vue子应用预览：https://vue.xiaoqiang.tech
 ## 🏆 写在最后
 
 能坚持到最后的都是勇士，```感谢阅读```，欢迎```star```鼓励
+
+## ⭐️ Star
+
+[![Star History Chart](https://api.star-history.com/svg?repos=niexq/react-app-qiankun-main&type=Date)](https://star-history.com/#niexq/react-app-qiankun-main&Date)
