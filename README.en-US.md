@@ -841,6 +841,6 @@ Source address：https://github.com/niexq/react-app-qiankun-main
 
 Those who can persist to the end are the warriors, ```Thanks for reading```, welcome ```star``` to encourage
 
-## Star History
+## ⭐️ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=niexq/react-app-qiankun-main&type=Date)](https://star-history.com/#niexq/react-app-qiankun-main&Date)
